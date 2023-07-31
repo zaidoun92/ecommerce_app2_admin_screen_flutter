@@ -39,4 +39,16 @@ class AppLink {
   static const String doneOrders = "$server/orders/done.php";
   // ===================== Notification ========================//
   static const String notification = "$server/notification.php";
+
+  // ===================== Categories ========================//
+  static const String categoriesview = "$server/categories/view.php";
+  static const String categoriesadd = "$server/categories/add.php";
+  static const String categoriesedit = "$server/categories/edit.php";
+  static const String categoriesedelete = "$server/categories/delete.php";
+
+  // ===================== Items ========================//
+  static const String itemsview = "$server/items/view.php";
+  static const String itemsadd = "$server/items/add.php";
+  static const String itemsedit = "$server/items/edit.php";
+  static const String itemsdelete = "$server/items/delete.php";
 }

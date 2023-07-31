@@ -6,7 +6,7 @@ ThemeData themeEnglish = ThemeData(
   appBarTheme: const AppBarTheme(
     centerTitle: true,
     elevation: 0,
-    iconTheme: IconThemeData(color: AppColor.primaryColor),
+    iconTheme: IconThemeData(color: Colors.white),
     titleTextStyle: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:admin/core/constant/imageassets.dart';
+import 'package:admin/core/constant/routes.dart';
 import 'package:admin/view/widget/home/cardhome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,9 +22,11 @@ class HomePage extends StatelessWidget {
             shrinkWrap: true,
             children: [
               CardAdminHome(
-                onClick: () {},
-                title: "Notification",
-                url: AppImageAsset.notification2,
+                onClick: () {
+                  Get.toNamed(AppRoute.categoriesview);
+                },
+                title: "Categories",
+                url: AppImageAsset.categories,
               ),
               CardAdminHome(
                 onClick: () {},
@@ -32,18 +35,23 @@ class HomePage extends StatelessWidget {
               ),
               CardAdminHome(
                 onClick: () {},
+                title: "Users",
+                url: AppImageAsset.users,
+              ),
+              CardAdminHome(
+                onClick: () {},
                 title: "Orders",
                 url: AppImageAsset.orders,
               ),
               CardAdminHome(
                 onClick: () {},
-                title: "Massage",
-                url: AppImageAsset.message,
+                title: "Report",
+                url: AppImageAsset.report,
               ),
               CardAdminHome(
                 onClick: () {},
-                title: "Report",
-                url: AppImageAsset.report,
+                title: "Notification",
+                url: AppImageAsset.notification2,
               ),
             ],
           ),

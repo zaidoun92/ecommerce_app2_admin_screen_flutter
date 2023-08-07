@@ -3,6 +3,7 @@ import 'package:admin/view/screen/auth/forgetpassword/resetpassword.dart';
 import 'package:admin/view/screen/auth/forgetpassword/success_resetpassword.dart';
 import 'package:admin/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:admin/view/screen/auth/login.dart';
+import 'package:admin/view/screen/categories/add.dart';
 import 'package:admin/view/screen/categories/view.dart';
 import 'package:admin/view/screen/home.dart';
 import 'package:admin/view/screen/language.dart';
@@ -42,6 +43,7 @@ List<GetPage<dynamic>>? routes = [
   // GetPage(name: AppRoute.offers, page: () => const OffersView()),
   // Categories
   GetPage(name: AppRoute.categoriesview, page: () => const CategoriesView()),
+  GetPage(name: AppRoute.categoriesadd, page: () => const CategoriesAdd()),
 ];
 
 

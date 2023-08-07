@@ -23,40 +23,45 @@ class CategoriesView extends StatelessWidget {
       body: GetBuilder<CategoriesController>(
         builder: (controller) => HandlingDataView(
           statusRequest: controller.statusRequest,
-          widget: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: ListView.builder(
-              itemCount: controller.data.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          padding: const EdgeInsets.all(4),
-                          child: SvgPicture.network(
-                            height: 80,
-                            "${AppLink.imageCategories}/${controller.data[index].categoriesImage}",
+          widget: WillPopScope(
+            onWillPop: () {
+              return controller.myback();
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ListView.builder(
+                itemCount: controller.data.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            padding: const EdgeInsets.all(4),
+                            child: SvgPicture.network(
+                              height: 80,
+                              "${AppLink.imageCategories}/${controller.data[index].categoriesImage}",
+                            ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: ListTile(
-                          title: Text(controller.data[index].categoriesName!),
-                          subtitle:
-                              Text(controller.data[index].categoriesDatetime!),
-                          trailing: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.edit),
+                        Expanded(
+                          flex: 3,
+                          child: ListTile(
+                            title: Text(controller.data[index].categoriesName!),
+                            subtitle: Text(
+                                controller.data[index].categoriesDatetime!),
+                            trailing: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.edit),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ),

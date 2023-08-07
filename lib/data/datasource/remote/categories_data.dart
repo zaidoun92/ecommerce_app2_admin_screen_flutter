@@ -1,3 +1,4 @@
+import 'dart:io';
 import '../../../core/class/crud.dart';
 import '../../../linkapi.dart';
 
@@ -11,8 +12,12 @@ class CategoriesData {
     return response.fold((l) => l, (r) => r);
   }
 
-  add(Map data) async {
-    var response = await crud.postData(AppLink.categoriesadd, data);
+  add(Map data, File file) async {
+    var response = await crud.addRequestWithImageOne(
+      AppLink.categoriesadd,
+      data,
+      file,
+    );
     return response.fold((l) => l, (r) => r);
   }
 

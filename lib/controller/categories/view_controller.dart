@@ -1,3 +1,4 @@
+import 'package:admin/core/constant/routes.dart';
 import 'package:admin/data/datasource/remote/categories_data.dart';
 import 'package:admin/data/model/categoriesmodel.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,11 @@ class CategoriesController extends GetxController {
 
   getData() async {
     //
+    data.clear();
+
     statusRequest = StatusRequest.loading;
+
+    update();
 
     var response = await categoriesData.get();
 
@@ -39,5 +44,10 @@ class CategoriesController extends GetxController {
   void onInit() {
     getData();
     super.onInit();
+  }
+
+  myback() {
+    Get.offAllNamed(AppRoute.homePage);
+    return Future.value(false);
   }
 }

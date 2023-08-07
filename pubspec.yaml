@@ -75,6 +75,8 @@ dependencies:
   timelines: ^0.1.0
   flutter_ringtone_player: ^3.2.0
   rating_dialog: ^2.0.4
+  drop_down_list: ^0.0.5
+  file_picker: ^5.3.3
 
 dev_dependencies:
   flutter_test:

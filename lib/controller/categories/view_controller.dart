@@ -40,6 +40,12 @@ class CategoriesController extends GetxController {
     update();
   }
 
+  deleteCategory(String id, String imagename) {
+    categoriesData.delete({"id": id, "imagename": imagename});
+    data.removeWhere((element) => element.categoriesId == id);
+    update();
+  }
+
   @override
   void onInit() {
     getData();

@@ -52,8 +52,21 @@ class CategoriesView extends StatelessWidget {
                             subtitle: Text(
                                 controller.data[index].categoriesDatetime!),
                             trailing: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.edit),
+                              onPressed: () {
+                                Get.defaultDialog(
+                                    title: "WARNING",
+                                    middleText:
+                                        "Do you confirm to deleate category",
+                                    onCancel: () {},
+                                    onConfirm: () {
+                                      controller.deleteCategory(
+                                          controller.data[index].categoriesId!,
+                                          controller
+                                              .data[index].categoriesImage!);
+                                      Get.back();
+                                    });
+                              },
+                              icon: const Icon(Icons.delete),
                             ),
                           ),
                         ),

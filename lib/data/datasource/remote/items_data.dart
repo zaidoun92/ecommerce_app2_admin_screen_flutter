@@ -6,27 +6,24 @@ import 'package:dartz/dartz.dart';
 import '../../../core/class/crud.dart';
 import '../../../linkapi.dart';
 
-class CategoriesData {
+class ItemsData {
   Crud crud;
 
-  CategoriesData(this.crud);
+  ItemsData(this.crud);
 
   get() async {
-    var response = await crud.postData(AppLink.categoriesview, {});
+    var response = await crud.postData(AppLink.itemsview, {});
     return response.fold((l) => l, (r) => r);
   }
 
   add(Map data, File file) async {
-    var response = await crud.addRequestWithImageOne(
-      AppLink.categoriesadd,
-      data,
-      file,
-    );
+    var response =
+        await crud.addRequestWithImageOne(AppLink.itemsadd, data, file);
     return response.fold((l) => l, (r) => r);
   }
 
   delete(Map data) async {
-    var response = await crud.postData(AppLink.categoriesedelete, data);
+    var response = await crud.postData(AppLink.itemsdelete, data);
     return response.fold((l) => l, (r) => r);
   }
 
@@ -34,10 +31,10 @@ class CategoriesData {
     Either<StatusRequest, Map> response;
     // var response;
     if (file == null) {
-      response = await crud.postData(AppLink.categoriesedit, data);
+      response = await crud.postData(AppLink.itemsedit, data);
     } else {
       response =
-          await crud.addRequestWithImageOne(AppLink.categoriesedit, data, file);
+          await crud.addRequestWithImageOne(AppLink.itemsedit, data, file);
     }
     return response.fold((l) => l, (r) => r);
   }

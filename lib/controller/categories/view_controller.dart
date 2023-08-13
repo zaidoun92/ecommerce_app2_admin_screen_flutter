@@ -46,6 +46,12 @@ class CategoriesController extends GetxController {
     update();
   }
 
+  goToPageEdit(CategorisModel categorisModel) {
+    Get.toNamed(AppRoute.categoriesedit, arguments: {
+      "categorisModel": categorisModel,
+    });
+  }
+
   @override
   void onInit() {
     getData();

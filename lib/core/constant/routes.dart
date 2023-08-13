@@ -33,7 +33,7 @@ class AppRoute {
   static const String categoriesadd = "/categoriesadd";
   static const String categoriesedit = "/categoriesedit";
   // items
-  static const String itemview = "/itemview";
+  static const String itemsview = "/itemview";
   static const String itemsadd = "/itemsadd";
   static const String itemsedit = "/itemsedit";
 }

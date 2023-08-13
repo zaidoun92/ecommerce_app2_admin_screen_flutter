@@ -6,20 +6,20 @@ import 'package:admin/core/shared/customtextformglobal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../controller/categories/edit_controller.dart';
+import '../../../controller/items/edit_controller.dart';
 
-class CategoriesEdit extends StatelessWidget {
-  const CategoriesEdit({super.key});
+class ItemsEdit extends StatelessWidget {
+  const ItemsEdit({super.key});
 
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    CategoriesEditController controller = Get.put(CategoriesEditController());
+    ItemsEditController controller = Get.put(ItemsEditController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Edit Category"),
+        title: const Text("Edit Items"),
       ),
-      body: GetBuilder<CategoriesEditController>(
+      body: GetBuilder<ItemsEditController>(
         builder: (controller) => HandlingDataView(
           statusRequest: controller.statusRequest!,
           widget: Container(
@@ -29,8 +29,8 @@ class CategoriesEdit extends StatelessWidget {
               child: ListView(
                 children: [
                   CustomTextFormGlobal(
-                    hintText: "Add the Category",
-                    labelText: "Category name",
+                    hintText: "Add the Items",
+                    labelText: "items name",
                     iconData: Icons.category,
                     myController: controller.name,
                     valid: (val) {
@@ -39,8 +39,8 @@ class CategoriesEdit extends StatelessWidget {
                     isNumbner: false,
                   ),
                   CustomTextFormGlobal(
-                    hintText: "Add the Category (Arabic)",
-                    labelText: "Category name (Arabic)",
+                    hintText: "Add the Items (Arabic)",
+                    labelText: "Items name (Arabic)",
                     iconData: Icons.category,
                     myController: controller.namear,
                     valid: (val) {
@@ -56,7 +56,7 @@ class CategoriesEdit extends StatelessWidget {
                       onPressed: () {
                         controller.chooseImage();
                       },
-                      child: const Text("Choose category image"),
+                      child: const Text("Choose items image"),
                     ),
                   ),
                   if (controller.file != null)

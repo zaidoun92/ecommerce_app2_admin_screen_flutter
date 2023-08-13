@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeControllerImp controller = Get.put(HomeControllerImp());
+    Get.put(HomeControllerImp());
     return Scaffold(
       appBar: AppBar(title: const Text("Home")),
       body: ListView(
@@ -29,8 +29,10 @@ class HomePage extends StatelessWidget {
                 url: AppImageAsset.categories,
               ),
               CardAdminHome(
-                onClick: () {},
-                title: "Product",
+                onClick: () {
+                  Get.toNamed(AppRoute.itemsview);
+                },
+                title: "Items",
                 url: AppImageAsset.product,
               ),
               CardAdminHome(

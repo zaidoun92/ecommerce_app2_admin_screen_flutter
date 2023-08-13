@@ -51,22 +51,35 @@ class CategoriesView extends StatelessWidget {
                             title: Text(controller.data[index].categoriesName!),
                             subtitle: Text(
                                 controller.data[index].categoriesDatetime!),
-                            trailing: IconButton(
-                              onPressed: () {
-                                Get.defaultDialog(
-                                    title: "WARNING",
-                                    middleText:
-                                        "Do you confirm to deleate category",
-                                    onCancel: () {},
-                                    onConfirm: () {
-                                      controller.deleteCategory(
-                                          controller.data[index].categoriesId!,
-                                          controller
-                                              .data[index].categoriesImage!);
-                                      Get.back();
-                                    });
-                              },
-                              icon: const Icon(Icons.delete),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Get.defaultDialog(
+                                        title: "WARNING",
+                                        middleText:
+                                            "Do you confirm to deleate category",
+                                        onCancel: () {},
+                                        onConfirm: () {
+                                          controller.deleteCategory(
+                                              controller
+                                                  .data[index].categoriesId!,
+                                              controller.data[index]
+                                                  .categoriesImage!);
+                                          Get.back();
+                                        });
+                                  },
+                                  icon: const Icon(Icons.delete),
+                                ),
+                                IconButton(
+                                  onPressed: () {
+                                    controller
+                                        .goToPageEdit(controller.data[index]);
+                                  },
+                                  icon: const Icon(Icons.edit),
+                                ),
+                              ],
                             ),
                           ),
                         ),

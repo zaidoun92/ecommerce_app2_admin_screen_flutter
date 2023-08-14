@@ -5,6 +5,7 @@ import 'package:admin/core/constant/routes.dart';
 import 'package:admin/core/functions/uploadfile.dart';
 import 'package:admin/data/datasource/remote/items_data.dart';
 import 'package:admin/data/model/itemsmodel.dart';
+import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
@@ -16,10 +17,25 @@ class ItemsEditController extends GetxController {
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
-  StatusRequest? statusRequest = StatusRequest.none;
+  List<SelectedListItem> dropdownlist = [];
+
+  late TextEditingController dropdownname;
+  late TextEditingController dropdownid;
 
   late TextEditingController name;
   late TextEditingController namear;
+
+  late TextEditingController desc;
+  late TextEditingController descar;
+
+  late TextEditingController count;
+  late TextEditingController price;
+  late TextEditingController discount;
+
+  TextEditingController? catname;
+  TextEditingController? catid;
+
+  StatusRequest? statusRequest = StatusRequest.none;
 
   ItemsModel? itemsModel;
 
@@ -36,12 +52,18 @@ class ItemsEditController extends GetxController {
       statusRequest = StatusRequest.loading;
 
       update();
-
       Map data = {
         "name": name.text,
         "namear": namear.text,
         "imageold": itemsModel!.itemsImage,
         "id": itemsModel!.itemsId.toString(),
+        "price": price.text,
+        "desc": desc.text,
+        "descar": descar.text,
+        "count": count.text,
+        "discount": discount.text,
+        "catid": catid!.text,
+        "datenow": DateTime.now().toString(),
       };
 
       var response = await itemsData.edit(data, file);
@@ -69,8 +91,24 @@ class ItemsEditController extends GetxController {
     itemsModel = Get.arguments['itemsModel'];
     name = TextEditingController();
     namear = TextEditingController();
+    desc = TextEditingController();
+    descar = TextEditingController();
+    count = TextEditingController();
+    price = TextEditingController();
+    discount = TextEditingController();
+    catid = TextEditingController();
+    catname = TextEditingController();
+
     name.text = itemsModel!.itemsName!;
     namear.text = itemsModel!.itemsNameAr!;
+    desc.text = itemsModel!.itemsDesc!;
+    descar.text = itemsModel!.itemsDescAr!;
+    count.text = itemsModel!.itemsCount!;
+    price.text = itemsModel!.itemsPrice!;
+    discount.text = itemsModel!.itemsDiscount!;
+    catid!.text = itemsModel!.categoriesId!;
+    catname!.text = itemsModel!.categoriesName!;
+
     super.onInit();
   }
 }

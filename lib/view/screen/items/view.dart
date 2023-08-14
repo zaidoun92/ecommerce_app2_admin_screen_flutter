@@ -54,7 +54,8 @@ class ItemsView extends StatelessWidget {
                             flex: 3,
                             child: ListTile(
                               title: Text(controller.data[index].itemsName!),
-                              subtitle: Text(controller.data[index].itemsDate!),
+                              subtitle:
+                                  Text(controller.data[index].categoriesName!),
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [

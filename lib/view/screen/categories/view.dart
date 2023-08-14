@@ -32,58 +32,64 @@ class CategoriesView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: controller.data.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                            padding: const EdgeInsets.all(4),
-                            child: SvgPicture.network(
-                              height: 80,
-                              "${AppLink.imageCategories}/${controller.data[index].categoriesImage}",
+                  return InkWell(
+                    onTap: () {
+                      controller.goToPageEdit(controller.data[index]);
+                    },
+                    child: Card(
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              child: SvgPicture.network(
+                                height: 80,
+                                "${AppLink.imageCategories}/${controller.data[index].categoriesImage}",
+                              ),
                             ),
                           ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: ListTile(
-                            title: Text(controller.data[index].categoriesName!),
-                            subtitle: Text(
-                                controller.data[index].categoriesDatetime!),
-                            trailing: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  onPressed: () {
-                                    Get.defaultDialog(
-                                        title: "WARNING",
-                                        middleText:
-                                            "Do you confirm to deleate category",
-                                        onCancel: () {},
-                                        onConfirm: () {
-                                          controller.deleteCategory(
-                                              controller
-                                                  .data[index].categoriesId!,
-                                              controller.data[index]
-                                                  .categoriesImage!);
-                                          Get.back();
-                                        });
-                                  },
-                                  icon: const Icon(Icons.delete),
-                                ),
-                                IconButton(
-                                  onPressed: () {
-                                    controller
-                                        .goToPageEdit(controller.data[index]);
-                                  },
-                                  icon: const Icon(Icons.edit),
-                                ),
-                              ],
+                          Expanded(
+                            flex: 3,
+                            child: ListTile(
+                              title:
+                                  Text(controller.data[index].categoriesName!),
+                              subtitle: Text(
+                                  controller.data[index].categoriesDatetime!),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed: () {
+                                      Get.defaultDialog(
+                                          title: "WARNING",
+                                          middleText:
+                                              "Do you confirm to deleate category",
+                                          onCancel: () {},
+                                          onConfirm: () {
+                                            controller.deleteCategory(
+                                                controller
+                                                    .data[index].categoriesId!,
+                                                controller.data[index]
+                                                    .categoriesImage!);
+                                            Get.back();
+                                          });
+                                    },
+                                    icon: const Icon(Icons.delete),
+                                  ),
+                                  // IconButton(
+                                  //   onPressed: () {
+                                  //     controller
+                                  //         .goToPageEdit(controller.data[index]);
+                                  //   },
+                                  //   icon: const Icon(Icons.edit),
+                                  // ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },

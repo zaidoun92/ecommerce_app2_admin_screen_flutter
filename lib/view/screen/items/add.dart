@@ -129,7 +129,7 @@ class ItemsAdd extends StatelessWidget {
                     onPressed: () {
                       controller.addData();
                     },
-                  )
+                  ),
                 ],
               ),
             ),

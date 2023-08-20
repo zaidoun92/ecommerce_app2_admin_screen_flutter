@@ -6,9 +6,8 @@ class OrdersArchiveData {
 
   OrdersArchiveData(this.crud);
 
-  getData(String deliverid) async {
-    var response =
-        await crud.postData(AppLink.viewaechiveOrders, {"id": deliverid});
+  getData() async {
+    var response = await crud.postData(AppLink.viewaechiveOrders, {});
     return response.fold((l) => l, (r) => r);
   }
 }

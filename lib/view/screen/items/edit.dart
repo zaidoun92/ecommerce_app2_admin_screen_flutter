@@ -34,7 +34,7 @@ class ItemsEdit extends StatelessWidget {
                     iconData: Icons.category,
                     myController: controller.name,
                     valid: (val) {
-                      return validInput(val!, 1, 30, "");
+                      return validInput(val!, 1, 50, "");
                     },
                     isNumbner: false,
                   ),
@@ -44,7 +44,7 @@ class ItemsEdit extends StatelessWidget {
                     iconData: Icons.category,
                     myController: controller.namear,
                     valid: (val) {
-                      return validInput(val!, 1, 30, "");
+                      return validInput(val!, 1, 50, "");
                     },
                     isNumbner: false,
                   ),
@@ -54,7 +54,7 @@ class ItemsEdit extends StatelessWidget {
                     iconData: Icons.category,
                     myController: controller.desc,
                     valid: (val) {
-                      return validInput(val!, 1, 30, "");
+                      return validInput(val!, 1, 200, "");
                     },
                     isNumbner: false,
                   ),
@@ -64,7 +64,7 @@ class ItemsEdit extends StatelessWidget {
                     iconData: Icons.category,
                     myController: controller.descar,
                     valid: (val) {
-                      return validInput(val!, 1, 30, "");
+                      return validInput(val!, 1, 200, "");
                     },
                     isNumbner: false,
                   ),
@@ -105,6 +105,24 @@ class ItemsEdit extends StatelessWidget {
                     dropdownSelectedName: controller.catname!,
                     dropdownSelectedID: controller.catid!,
                   ),
+                  ///////////////////////////////////////////////
+                  const SizedBox(height: 10),
+                  RadioListTile(
+                      title: const Text("hide"),
+                      value: "0",
+                      groupValue: controller.active,
+                      onChanged: (val) {
+                        controller.changeStatusActive(val);
+                      }),
+                  RadioListTile(
+                    title: const Text("Active"),
+                    value: "1",
+                    groupValue: controller.active,
+                    onChanged: (val) {
+                      controller.changeStatusActive(val);
+                    },
+                  ),
+                  const SizedBox(height: 10),
                   ///////////////////////////////////////////////
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),

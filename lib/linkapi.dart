@@ -31,12 +31,16 @@ class AppLink {
   static const String homePage = "$server/home.php";
 
   // ===================== Checkout ========================//
-  static const String viewpendingOrders = "$server/orders/pending.php";
-  static const String viewacceptedOrders = "$server/orders/accepted.php";
+
   static const String approveOrder = "$server/orders/approve.php";
+  static const String prepare = "$server/orders/prepare.php";
+
   static const String viewaechiveOrders = "$server/orders/archive.php";
+  static const String viewpendingOrders = "$server/orders/viewpending.php";
+  static const String viewacceptedOrders = "$server/orders/viewaccepted.php";
   static const String detailsOrders = "$server/orders/details.php";
   static const String doneOrders = "$server/orders/done.php";
+
   // ===================== Notification ========================//
   static const String notification = "$server/notification.php";
 

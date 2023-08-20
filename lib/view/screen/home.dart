@@ -41,7 +41,9 @@ class HomePage extends StatelessWidget {
                 url: AppImageAsset.users,
               ),
               CardAdminHome(
-                onClick: () {},
+                onClick: () {
+                  Get.toNamed(AppRoute.ordersscreen);
+                },
                 title: "Orders",
                 url: AppImageAsset.orders,
               ),

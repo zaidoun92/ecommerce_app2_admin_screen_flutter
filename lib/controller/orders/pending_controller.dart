@@ -77,7 +77,6 @@ class OrdersPendingController extends GetxController {
     var response = await ordersPendingData.approveOrder(
       myServices.sharedPreferences.getString("id")!,
       userid,
-      ordersid,
     );
 
     print("====================== Controller $response");

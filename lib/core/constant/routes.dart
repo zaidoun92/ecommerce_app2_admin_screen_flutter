@@ -23,6 +23,7 @@ class AppRoute {
   // CheckOut
   static const String checkout = "/checkout";
   // Orders
+  static const String ordersscreen = "/ordersscreen";
   static const String orderspending = "/orderspending";
   static const String ordersarchive = "/ordersarchive";
   static const String ordersdetails = "/ordersdetails";

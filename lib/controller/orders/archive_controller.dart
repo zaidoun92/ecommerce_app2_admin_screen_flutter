@@ -51,8 +51,7 @@ class OrdersArchiveController extends GetxController {
     data.clear();
     statusRequest = StatusRequest.loading;
     update();
-    var response = await ordersArchiveData
-        .getData(myServices.sharedPreferences.getString("id")!);
+    var response = await ordersArchiveData.getData();
 
     print("====================== Controller $response");
 
@@ -67,29 +66,6 @@ class OrdersArchiveController extends GetxController {
     }
     update();
   }
-
-  // submitRating(String ordersid, double rating, String commit) async {
-  //   data.clear();
-  //   statusRequest = StatusRequest.loading;
-  //   update();
-  //   var response = await ordersArchiveData.rating(
-  //     ordersid,
-  //     rating.toString(),
-  //     commit,
-  //   );
-
-  //   print("====================== Controller $response");
-
-  //   statusRequest = handlingData(response);
-  //   if (StatusRequest.success == statusRequest) {
-  //     if (response['status'] == "success") {
-  //       getOrders();
-  //     } else {
-  //       statusRequest = StatusRequest.failure;
-  //     }
-  //   }
-  //   update();
-  // }
 
   refreshOrder() {
     getOrders();

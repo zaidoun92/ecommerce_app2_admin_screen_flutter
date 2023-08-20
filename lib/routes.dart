@@ -14,6 +14,7 @@ import 'package:admin/view/screen/language.dart';
 import 'package:admin/view/screen/orders/archive.dart';
 import 'package:admin/view/screen/orders/details.dart';
 import 'package:admin/view/screen/orders/pending.dart';
+import 'package:admin/view/screen/orders/screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 import 'core/constant/routes.dart';
@@ -39,10 +40,6 @@ List<GetPage<dynamic>>? routes = [
   // Home
   GetPage(name: AppRoute.homePage, page: () => const HomePage()),
 
-  //Orders
-  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
-  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
-  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
   //Offers
   // GetPage(name: AppRoute.offers, page: () => const OffersView()),
   // Categories
@@ -54,6 +51,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.itemsview, page: () => const ItemsView()),
   GetPage(name: AppRoute.itemsadd, page: () => const ItemsAdd()),
   GetPage(name: AppRoute.itemsedit, page: () => const ItemsEdit()),
+
+  //Orders
+  GetPage(name: AppRoute.ordersscreen, page: () => const OrderScreen()),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
+  GetPage(name: AppRoute.ordersarchive, page: () => const OrdersArchiveView()),
+  GetPage(name: AppRoute.ordersdetails, page: () => const OrdersDetails()),
 ];
 
 

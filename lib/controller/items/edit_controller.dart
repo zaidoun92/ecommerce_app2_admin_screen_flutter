@@ -41,6 +41,13 @@ class ItemsEditController extends GetxController {
 
   File? file;
 
+  String? active;
+
+  changeStatusActive(val) {
+    active = val;
+    update();
+  }
+
   chooseImage() async {
     file = await fileUploadGallery(true);
     update();
@@ -52,11 +59,13 @@ class ItemsEditController extends GetxController {
       statusRequest = StatusRequest.loading;
 
       update();
+
       Map data = {
+        "id": itemsModel!.itemsId.toString(),
+        "imageold": itemsModel!.itemsImage,
+        "active": active,
         "name": name.text,
         "namear": namear.text,
-        "imageold": itemsModel!.itemsImage,
-        "id": itemsModel!.itemsId.toString(),
         "price": price.text,
         "desc": desc.text,
         "descar": descar.text,
@@ -108,6 +117,7 @@ class ItemsEditController extends GetxController {
     discount.text = itemsModel!.itemsDiscount!;
     catid!.text = itemsModel!.categoriesId!;
     catname!.text = itemsModel!.categoriesName!;
+    active = itemsModel!.itemsActive!;
 
     super.onInit();
   }

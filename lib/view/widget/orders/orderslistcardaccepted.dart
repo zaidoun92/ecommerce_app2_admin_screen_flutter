@@ -74,12 +74,13 @@ class CardOrdersListAccepted extends GetView<OrdersAcceptedController> {
                   child: const Text("Details"),
                 ),
                 const SizedBox(width: 10),
-                if (listdata.ordersStatus == "3")
+                if (listdata.ordersStatus == "1")
                   MaterialButton(
                     onPressed: () {
-                      controller.doneDelivery(
+                      controller.donePrepare(
                         listdata.ordersId!,
                         listdata.ordersUsersid!,
+                        listdata.ordersType!,
                       );
                     },
                     color: AppColor.thirdColor,
